@@ -1,83 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        // GTM Script
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WHXTLXK2');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test GTM Setup with Consent</title>
-    
-    <!-- Google Tag Manager with Consent -->
-    <script>
-        // Initialize dataLayer
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        
-        // Set default consent to denied
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied'
-        });
-        
-        // GTM Script
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-WHXTLXK2');
-        
-        // Consent functions
-        function grantConsent() {
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted'
-            });
-            console.log('Consent granted');
-        }
-        
-        function denyConsent() {
-            gtag('consent', 'update', {
-                'ad_storage': 'denied',
-                'analytics_storage': 'denied',
-                'ad_user_data': 'denied',
-                'ad_personalization': 'denied'
-            });
-            console.log('Consent denied');
-        }
-    </script>
+    <title>Test</title>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHXTLXK2"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    
-    <h1>GTM Test Page</h1>
-    
-    <!-- Consent Buttons -->
-    <div id="consent-banner">
-        <p>This site uses cookies. Do you accept?</p>
-        <button onclick="grantConsent()">Accept</button>
-        <button onclick="denyConsent()">Deny</button>
-    </div>
-    
-    <!-- Test Button -->
-    <button id="testButton">Test Event</button>
-    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHXTLXK2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <h1>GTM TEST PAGE</h1>
+    <button id="testButton">yes</button>
+
     <script>
-        // Test event
-        document.getElementById('testButton').addEventListener('click', function() {
+         document.getElementById('testButton').addEventListener('click', function() {
             window.dataLayer.push({
                 'event': 'button_click',
-                'button_name': 'test_button',
-                'timestamp': new Date().getTime()
+                'button_name': 'test_button'
             });
             console.log('Event pushed to dataLayer');
         });
     </script>
 </body>
-</html>
