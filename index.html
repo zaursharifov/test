@@ -4,6 +4,9 @@
 <head>
 
     <script>
+        window.dataLayer = window.dataLayer || [];
+
+        // GTM Script
         (function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
@@ -12,27 +15,6 @@
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-WHXTLXK2');
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-        });
-
-        function consentGrantedAdStorage() {
-            console.log('click');
-            gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'analytics_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted'
-            });
-            console.log('gtag consent updated');
-        }
     </script>
 
     <meta charset="UTF-8" />
@@ -44,6 +26,16 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHXTLXK2" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
 
+    <h1>GTM TEST PAGE</h1>
+    <button id="testButton">yes</button>
 
-    <button onclick="consentGrantedAdStorage()">yes</button>
+    <script>
+         document.getElementById('testButton').addEventListener('click', function() {
+            window.dataLayer.push({
+                'event': 'button_click',
+                'button_name': 'test_button'
+            });
+            console.log('Event pushed to dataLayer');
+        });
+    </script>
 </body>
