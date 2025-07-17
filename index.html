@@ -29,19 +29,13 @@
     <script>
         function consentGrantedAdStorage() {
             console.log('click');
-            gtag('consent', 'update', {
+            window.dataLayer.push({
+                'event': 'consentUpdate',
                 'ad_storage': 'granted',
                 'ad_user_data': 'granted',
                 'ad_personalization': 'granted',
                 'analytics_storage': 'granted'
             });
-            // window.dataLayer.push({
-            //     'event': 'consentUpdate',
-            //     'ad_storage': 'granted',
-            //     'ad_user_data': 'granted',
-            //     'ad_personalization': 'granted',
-            //     'analytics_storage': 'granted'
-            // });
             console.log('dataLayer updated');
         }
     </script>
