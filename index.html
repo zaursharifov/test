@@ -28,12 +28,22 @@
 
     <script>
         function consentGrantedAdStorage() {
+            console.log('click');
             gtag('consent', 'update', {
                 'ad_storage': 'granted',
                 'ad_user_data': 'granted',
                 'ad_personalization': 'granted',
                 'analytics_storage': 'granted'
             });
+            console.log('consent granted');
+            window.dataLayer.push({
+                'event': 'consentGranted',
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted',
+                'analytics_storage': 'granted'
+            });
+            console.log('dataLayer updated');
         }
     </script>
 
@@ -47,5 +57,5 @@
             style="display:none;visibility:hidden"></iframe></noscript>
 
 
-            <button onclick="consentGrantedAdStorage()"></button>
+            <button onclick="consentGrantedAdStorage()">yes</button>
 </body>
