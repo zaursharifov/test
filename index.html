@@ -2,18 +2,6 @@
 <html lang="fr">
 
 <head>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'wait_for_update': 500
-        });
-    </script>
 
     <script>
         (function (w, d, s, l, i) {
@@ -24,19 +12,26 @@
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-WHXTLXK2');
-    </script>
 
-    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+        });
+
         function consentGrantedAdStorage() {
             console.log('click');
-            window.dataLayer.push({
-                'event': 'consentUpdate',
+            gtag('consent', 'update', {
                 'ad_storage': 'granted',
+                'analytics_storage': 'granted',
                 'ad_user_data': 'granted',
-                'ad_personalization': 'granted',
-                'analytics_storage': 'granted'
+                'ad_personalization': 'granted'
             });
-            console.log('dataLayer updated');
+            console.log('gtag consent updated');
         }
     </script>
 
@@ -50,5 +45,5 @@
             style="display:none;visibility:hidden"></iframe></noscript>
 
 
-            <button onclick="consentGrantedAdStorage()">yes</button>
+    <button onclick="consentGrantedAdStorage()">yes</button>
 </body>
